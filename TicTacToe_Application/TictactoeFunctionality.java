@@ -117,7 +117,7 @@ public class TictactoeFunctionality {
                 index += 1;
             }
 			v = Math.max(v, MIN_VALUE(RESULT(state,player,array),player-2,globalMINLevel+1,globalMAXLevel));
-			if(globalPlayer == 1 && globalMINLevel == 1) maxArray.add(v);
+			if(globalPlayer == 1 && globalMAXLevel == 1) maxArray.add(v);
 		}
 		return v;
 	}
@@ -140,19 +140,18 @@ public class TictactoeFunctionality {
 		return v;
 	}
 	
+	
 	public int MINIMAX(String[][] state) {
 		int player = globalPlayer;
 		if(player == 1) {
 			int n = MAX_VALUE(state, player, globalMINLevel, globalMAXLevel+1);
-			System.out.println(n);
 			ArrayList<List<Integer>> action = ACTIONS(state);
-			List<Integer> tmpList = action.get(maxArray.indexOf(MAXIMUM(maxArray)));
+			List<Integer> tmpList = action.get(maxArray.indexOf(MAXIMUM(maxArray))); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			maxArray.clear();
 			return convertCoordinatesToButtonNum(tmpList);
 		}
 		else {
-			int n = MIN_VALUE(state, player, globalMINLevel+1, globalMAXLevel);
-			System.out.println(n);
+			int n = MIN_VALUE(state, player, globalMINLevel+1, globalMAXLevel);			
 			ArrayList<List<Integer>> action = ACTIONS(state);
 			List<Integer> tmpList = action.get(minArray.indexOf(MINIMUM(minArray)));
 			minArray.clear();
