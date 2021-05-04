@@ -21,10 +21,11 @@ public class Tictactoe {
 	private JFrame frame;
 	private JTextField xCount;
 	private JTextField oCount;
-	private int xCount1 = 0;
-	private int oCount1 = 0;
+	private int HUMAN = 0;
+	private int AI = 0;
 	private String userSymbol = "X";
 	private String aiSymbol = "O";
+	private int lastMove;
 	private String[][] STATE = {{"0","0","0"},{"0","0","0"},{"0","0","0"}};
 	private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnReset;
 	private TictactoeFunctionality tttF = new TictactoeFunctionality();
@@ -49,6 +50,8 @@ public class Tictactoe {
 	 * Create the application.
 	 */
 	public Tictactoe() {
+		frame = new JFrame("Information");
+		JOptionPane.showMessageDialog(frame, " User has X Player.\n A.I has O Player.\n\nPlayers swap each round. X Player plays first.");
 		initialize();
 	}
 	
@@ -78,6 +81,7 @@ public class Tictactoe {
 				btn1.setText(userSymbol);
 				btn1.setForeground(Color.RED);
 				STATE[0][0] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -97,6 +101,7 @@ public class Tictactoe {
 				btn2.setText(userSymbol);
 				btn2.setForeground(Color.RED);
 				STATE[0][1] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -115,6 +120,7 @@ public class Tictactoe {
 				btn3.setText(userSymbol);
 				btn3.setForeground(Color.RED);
 				STATE[0][2] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -127,7 +133,7 @@ public class Tictactoe {
 		panel.add(panel_4);
 		panel_4.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("PLAYER X");
+		JLabel lblNewLabel = new JLabel("A.I");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		panel_4.add(lblNewLabel, BorderLayout.CENTER);
@@ -155,6 +161,7 @@ public class Tictactoe {
 				btn4.setText(userSymbol);
 				btn4.setForeground(Color.RED);
 				STATE[1][0] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -173,6 +180,7 @@ public class Tictactoe {
 				btn5.setText(userSymbol);
 				btn5.setForeground(Color.RED);
 				STATE[1][1] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -191,6 +199,7 @@ public class Tictactoe {
 				btn6.setText(userSymbol);
 				btn6.setForeground(Color.RED);
 				STATE[1][2] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -203,7 +212,7 @@ public class Tictactoe {
 		panel.add(panel_9);
 		panel_9.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("PLAYER O");
+		JLabel lblNewLabel_1 = new JLabel("Human");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		panel_9.add(lblNewLabel_1, BorderLayout.CENTER);
@@ -231,6 +240,7 @@ public class Tictactoe {
 				btn7.setText(userSymbol);
 				btn7.setForeground(Color.RED);
 				STATE[2][0] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -249,6 +259,7 @@ public class Tictactoe {
 				btn8.setText(userSymbol);
 				btn8.setForeground(Color.RED);
 				STATE[2][1] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -267,6 +278,7 @@ public class Tictactoe {
 				btn9.setText(userSymbol);
 				btn9.setForeground(Color.RED);
 				STATE[2][2] = userSymbol;
+				lastMove = 1;
 				isGAMEOVER();
 				aiPlays();
 			}
@@ -293,7 +305,6 @@ public class Tictactoe {
 				btn9.setText(null);
 				String[][] newState = {{"0","0","0"},{"0","0","0"},{"0","0","0"}};
 				STATE = newState;
-				
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -316,10 +327,6 @@ public class Tictactoe {
 		btnExit.setFont(new Font("Tahoma", Font.BOLD, 20));
 		panel_15.add(btnExit, BorderLayout.CENTER);
 		
-		// Check if A.I plays first
-		if(aiSymbol.equalsIgnoreCase("X")) {
-			aiPlays();
-		}
 	}
 	
 	
@@ -331,54 +338,63 @@ public class Tictactoe {
 			btn1.setText(aiSymbol);
 			btn1.setForeground(Color.BLUE);
 			STATE[0][0] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		case 2:
 			btn2.setText(aiSymbol);
 			btn2.setForeground(Color.BLUE);
 			STATE[0][1] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();			
 			break;
 		case 3:
 			btn3.setText(aiSymbol);
 			btn3.setForeground(Color.BLUE);
 			STATE[0][2] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		case 4:
 			btn4.setText(aiSymbol);
 			btn4.setForeground(Color.BLUE);
 			STATE[1][0] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		case 5:
 			btn5.setText(aiSymbol);
 			btn5.setForeground(Color.BLUE);
 			STATE[1][1] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		case 6:
 			btn6.setText(aiSymbol);
 			btn6.setForeground(Color.BLUE);
 			STATE[1][2] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		case 7:
 			btn7.setText(aiSymbol);
 			btn7.setForeground(Color.BLUE);
 			STATE[2][0] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		case 8:
 			btn8.setText(aiSymbol);
 			btn8.setForeground(Color.BLUE);
 			STATE[2][1] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		case 9:
 			btn9.setText(aiSymbol);
 			btn9.setForeground(Color.BLUE);
 			STATE[2][2] = aiSymbol;
+			lastMove = -1;
 			isGAMEOVER();
 			break;
 		}
@@ -402,17 +418,54 @@ public class Tictactoe {
 		if(tttF.TERMINAL(STATE)) {
 			int n = tttF.UTILITY(STATE);
 			if(n == 1) {
-				xCount1 += 1;
-				xCount.setText(Integer.toString(xCount1));
+				if(userSymbol.equals("X")) {
+					HUMAN += 1;
+					xCount.setText(Integer.toString(HUMAN));
+					frame = new JFrame("Information");
+					JOptionPane.showMessageDialog(frame, "Human wins!");
+				}
+				else if(aiSymbol.equals("X")) {
+					AI += 1;
+					xCount.setText(Integer.toString(AI));
+					frame = new JFrame("Information");
+					JOptionPane.showMessageDialog(frame, "AI wins!");
+				}
+				
+				String temp = aiSymbol;
+				aiSymbol = userSymbol;
+				userSymbol = temp;
+				
+				RESET();
+				if(lastMove == -1) aiPlays();
 			}
 			else if(n == -1) {
-				oCount1 += 1;
-				oCount.setText(Integer.toString(oCount1));
+				if(userSymbol.equals("O")) {
+					HUMAN += 1;
+					xCount.setText(Integer.toString(HUMAN));
+					frame = new JFrame("Information");
+					JOptionPane.showMessageDialog(frame, "Human wins!");
+				}
+				else if(aiSymbol.equals("O")) {
+					AI += 1;
+					xCount.setText(Integer.toString(AI));
+					frame = new JFrame("Information");
+					JOptionPane.showMessageDialog(frame, "A.I wins!");
+				}
+				
+				String temp = aiSymbol;
+				aiSymbol = userSymbol;
+				userSymbol = temp;
+				RESET();
+				if(lastMove == -1) aiPlays();
 			}
 			else {
 				frame = new JFrame("Information");
 				JOptionPane.showMessageDialog(frame, "It's a Draw");
+				String temp = aiSymbol;
+				aiSymbol = userSymbol;
+				userSymbol = temp;
 				RESET();
+				if(lastMove == -1) aiPlays();
 			}
 		}
 	}
