@@ -1,6 +1,12 @@
 /* 
-	This application 
-
+	This application implements the tic tac toe game. The user has to go against the 
+	computer. The computer uses an algorithm to make decisions called, the minimax 
+	algorithm. In each round, players swap so if the user has the X symbol and the 
+	computer has the O symbol, in the next round the players will swap symbols.
+	
+	A brief explanation of the algorithm can be found in the 'MiniMax_Java.docx' file.
+	The functionality of the algorithm ca be found in the 'TictactoeFunctionality.java' 
+	file.
 */
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -25,8 +31,8 @@ public class Tictactoe {
 	private JTextField oCount;
 	private int HUMAN = 0;
 	private int AI = 0;
-	private String userSymbol = "X";
-	private String aiSymbol = "O";
+	private String userSymbol = "X";							// User starts with the X symbol
+	private String aiSymbol = "O";								// Computer starts with the O symbol
 	private int lastMove;
 	private String[][] STATE = {{"0","0","0"},{"0","0","0"},{"0","0","0"}};
 	private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnReset;
@@ -77,6 +83,7 @@ public class Tictactoe {
 		panel.add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
+		// Button 1
 		btn1 = new JButton("");
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -97,6 +104,7 @@ public class Tictactoe {
 		panel.add(panel_2);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
+		// Button 2
 		btn2 = new JButton("");
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -116,6 +124,7 @@ public class Tictactoe {
 		panel.add(panel_3);
 		panel_3.setLayout(new BorderLayout(0, 0));
 		
+		// Button 3
 		btn3 = new JButton("");
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -157,6 +166,7 @@ public class Tictactoe {
 		panel.add(panel_6);
 		panel_6.setLayout(new BorderLayout(0, 0));
 		
+		// Button 4
 		btn4 = new JButton("");
 		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -176,6 +186,7 @@ public class Tictactoe {
 		panel.add(panel_7);
 		panel_7.setLayout(new BorderLayout(0, 0));
 		
+		// Button 5
 		btn5 = new JButton("");
 		btn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -195,6 +206,7 @@ public class Tictactoe {
 		panel.add(panel_8);
 		panel_8.setLayout(new BorderLayout(0, 0));
 		
+		// Button 6
 		btn6 = new JButton("");
 		btn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -236,6 +248,7 @@ public class Tictactoe {
 		panel.add(panel_11);
 		panel_11.setLayout(new BorderLayout(0, 0));
 		
+		// Button 7
 		btn7 = new JButton("");
 		btn7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -255,6 +268,7 @@ public class Tictactoe {
 		panel.add(panel_12);
 		panel_12.setLayout(new BorderLayout(0, 0));
 		
+		// Button 8
 		btn8 = new JButton("");
 		btn8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -274,6 +288,7 @@ public class Tictactoe {
 		panel.add(panel_13);
 		panel_13.setLayout(new BorderLayout(0, 0));
 		
+		// Button 9
 		btn9 = new JButton("");
 		btn9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -293,6 +308,7 @@ public class Tictactoe {
 		panel.add(panel_14);
 		panel_14.setLayout(new BorderLayout(0, 0));
 		
+		// Button Reset
 		btnReset = new JButton("RESET");
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -317,6 +333,7 @@ public class Tictactoe {
 		panel.add(panel_15);
 		panel_15.setLayout(new BorderLayout(0, 0));
 		
+		// Button Exit
 		JButton btnExit = new JButton("EXIT");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -336,63 +353,63 @@ public class Tictactoe {
 		tttF.setGlobalPlayer(aiSymbol);
 		int button = tttF.MINIMAX(STATE);
 		switch(button) {
-		case 1:
+		case 1:												// If the button number is 1
 			btn1.setText(aiSymbol);
 			btn1.setForeground(Color.BLUE);
 			STATE[0][0] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();
 			break;
-		case 2:
+		case 2:												// If the button number is 2
 			btn2.setText(aiSymbol);
 			btn2.setForeground(Color.BLUE);
 			STATE[0][1] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();			
 			break;
-		case 3:
+		case 3:												// If the button number is 3
 			btn3.setText(aiSymbol);
 			btn3.setForeground(Color.BLUE);
 			STATE[0][2] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();
 			break;
-		case 4:
+		case 4:												// If the button number is 4
 			btn4.setText(aiSymbol);
 			btn4.setForeground(Color.BLUE);
 			STATE[1][0] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();
 			break;
-		case 5:
+		case 5:												// If the button number is 5
 			btn5.setText(aiSymbol);
 			btn5.setForeground(Color.BLUE);
 			STATE[1][1] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();
 			break;
-		case 6:
+		case 6:												// If the button number is 6
 			btn6.setText(aiSymbol);
 			btn6.setForeground(Color.BLUE);
 			STATE[1][2] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();
 			break;
-		case 7:
+		case 7:												// If the button number is 7
 			btn7.setText(aiSymbol);
 			btn7.setForeground(Color.BLUE);
 			STATE[2][0] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();
 			break;
-		case 8:
+		case 8:												// If the button number is 8
 			btn8.setText(aiSymbol);
 			btn8.setForeground(Color.BLUE);
 			STATE[2][1] = aiSymbol;
 			lastMove = -1;
 			isGAMEOVER();
 			break;
-		case 9:
+		case 9:												// If the button number is 9
 			btn9.setText(aiSymbol);
 			btn9.setForeground(Color.BLUE);
 			STATE[2][2] = aiSymbol;
@@ -402,6 +419,7 @@ public class Tictactoe {
 		}
 	}
 	
+
 	public void RESET() {
 		btn1.setText(null);
 		btn2.setText(null);
@@ -420,12 +438,14 @@ public class Tictactoe {
 		if(tttF.TERMINAL(STATE)) {
 			int n = tttF.UTILITY(STATE);
 			if(n == 1) {
+				// If user wins
 				if(userSymbol.equals("X")) {
 					HUMAN += 1;
 					xCount.setText(Integer.toString(HUMAN));
 					frame = new JFrame("Information");
 					JOptionPane.showMessageDialog(frame, "Human wins!");
 				}
+				// If computer wins
 				else if(aiSymbol.equals("X")) {
 					AI += 1;
 					xCount.setText(Integer.toString(AI));
@@ -433,20 +453,24 @@ public class Tictactoe {
 					JOptionPane.showMessageDialog(frame, "AI wins!");
 				}
 				
+				// Swap players
 				String temp = aiSymbol;
 				aiSymbol = userSymbol;
 				userSymbol = temp;
 				
+				// Reset the game
 				RESET();
 				if(lastMove == -1) aiPlays();
 			}
 			else if(n == -1) {
+				// If user wins
 				if(userSymbol.equals("O")) {
 					HUMAN += 1;
 					xCount.setText(Integer.toString(HUMAN));
 					frame = new JFrame("Information");
 					JOptionPane.showMessageDialog(frame, "Human wins!");
 				}
+				// If computer wins
 				else if(aiSymbol.equals("O")) {
 					AI += 1;
 					xCount.setText(Integer.toString(AI));
@@ -454,18 +478,25 @@ public class Tictactoe {
 					JOptionPane.showMessageDialog(frame, "A.I wins!");
 				}
 				
+				// Swap players
 				String temp = aiSymbol;
 				aiSymbol = userSymbol;
 				userSymbol = temp;
+
+				// Reset the game
 				RESET();
 				if(lastMove == -1) aiPlays();
 			}
-			else {
+			else {		// if it's draw
 				frame = new JFrame("Information");
 				JOptionPane.showMessageDialog(frame, "It's a Draw");
+				
+				// Swap players
 				String temp = aiSymbol;
 				aiSymbol = userSymbol;
 				userSymbol = temp;
+
+				// Reset the game
 				RESET();
 				if(lastMove == -1) aiPlays();
 			}
