@@ -95,7 +95,7 @@ public class University {
 						System.out.println("You have entered an invalid value. Please try again.");
 					}
 				}
-				System.out.println("The average earnings for the " + Service.getSeName() + " service is " + averageEarnings);
+				System.out.println("The average earnings for the " + Service.getSeName() + " service is " + (averageEarnings/2));
 			}
 			
 			postGraduates = 0;
