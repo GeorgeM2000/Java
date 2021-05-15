@@ -1,7 +1,4 @@
 package hashsets;
-/*
-	* HashSet Example
-*/
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,7 +19,6 @@ public class HashSetExample1 {
 		mySet.add(d);
 		
 
-		// HashSet iteration
 		Iterator it = mySet.iterator();
 		while (it.hasNext()) {
 			System.out.println(it.next());
