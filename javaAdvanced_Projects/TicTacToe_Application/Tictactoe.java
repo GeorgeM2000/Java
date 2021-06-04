@@ -1,10 +1,13 @@
+/*
+ * This project implements the Tic Tac Toe game. 
+ */
+
 import java.awt.EventQueue;
 
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
-//import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -25,7 +28,7 @@ public class Tictactoe {
 	private int AI = 0;
 	private String userSymbol = "X";
 	private String aiSymbol = "O";
-	private int lastMove;
+	private int lastMove;				// Determines who made the last move, the user, or the computer
 	private String[][] STATE = {{"0","0","0"},{"0","0","0"},{"0","0","0"}};
 	private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnReset;
 	private TictactoeFunctionality tttF = new TictactoeFunctionality();
@@ -46,6 +49,7 @@ public class Tictactoe {
 
 	// Create the application
 	public Tictactoe() {
+		// Show information dialog
 		frame = new JFrame("Information");
 		JOptionPane.showMessageDialog(frame, " User has X Player.\n A.I has O Player.\n\nPlayers swap each round. X Player plays first.");
 		initialize();
@@ -324,10 +328,10 @@ public class Tictactoe {
 		
 	}
 	
-	
 	private void aiPlays() {
-		tttF.setGlobalPlayer(aiSymbol);
-		int button = tttF.MINIMAX(STATE);
+		
+		tttF.setGlobalPlayer(aiSymbol);				
+		int button = tttF.MINIMAX(STATE);		// Return which button to choose
 		lastMove = -1;
 		switch(button) {
 		case 1:
@@ -403,7 +407,7 @@ public class Tictactoe {
 	
 	private void isGAMEOVER() {
 		if(tttF.TERMINAL(STATE)) {
-			int n = tttF.UTILITY(STATE);
+			int n = tttF.UTILITY(STATE);			// Return the winner
 			if(n == 1) {
 				if(userSymbol.equals("X")) {
 					HUMAN += 1;
@@ -418,6 +422,7 @@ public class Tictactoe {
 					JOptionPane.showMessageDialog(frame, "AI wins!");
 				}
 				
+				// Swap players
 				String temp = aiSymbol;
 				aiSymbol = userSymbol;
 				userSymbol = temp;
@@ -439,6 +444,7 @@ public class Tictactoe {
 					JOptionPane.showMessageDialog(frame, "A.I wins!");
 				}
 				
+				// Swap players
 				String temp = aiSymbol;
 				aiSymbol = userSymbol;
 				userSymbol = temp;
@@ -450,6 +456,7 @@ public class Tictactoe {
 				frame = new JFrame("Information");
 				JOptionPane.showMessageDialog(frame, "It's a Draw");
 				
+				// Swap players
 				String temp = aiSymbol;
 				aiSymbol = userSymbol;
 				userSymbol = temp;
