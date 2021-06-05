@@ -8,6 +8,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+//import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -76,12 +77,15 @@ public class Tictactoe {
 		btn1 = new JButton("");
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn1.setText(userSymbol);
-				btn1.setForeground(Color.RED);
-				STATE[0][0] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[0][0].equals("0")) {
+					btn1.setText(userSymbol);
+					btn1.setForeground(Color.RED);
+					STATE[0][0] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
+				
 			}
 		});
 		btn1.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -96,12 +100,14 @@ public class Tictactoe {
 		btn2 = new JButton("");
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn2.setText(userSymbol);
-				btn2.setForeground(Color.RED);
-				STATE[0][1] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[0][1].equals("0")) {
+					btn2.setText(userSymbol);
+					btn2.setForeground(Color.RED);
+					STATE[0][1] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn2.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -115,12 +121,14 @@ public class Tictactoe {
 		btn3 = new JButton("");
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn3.setText(userSymbol);
-				btn3.setForeground(Color.RED);
-				STATE[0][2] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[0][2].equals("0")) {
+					btn3.setText(userSymbol);
+					btn3.setForeground(Color.RED);
+					STATE[0][2] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn3.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -156,12 +164,14 @@ public class Tictactoe {
 		btn4 = new JButton("");
 		btn4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn4.setText(userSymbol);
-				btn4.setForeground(Color.RED);
-				STATE[1][0] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[1][0].equals("0")) {
+					btn4.setText(userSymbol);
+					btn4.setForeground(Color.RED);
+					STATE[1][0] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn4.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -175,12 +185,14 @@ public class Tictactoe {
 		btn5 = new JButton("");
 		btn5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn5.setText(userSymbol);
-				btn5.setForeground(Color.RED);
-				STATE[1][1] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[1][1].equals("0")) {
+					btn5.setText(userSymbol);
+					btn5.setForeground(Color.RED);
+					STATE[1][1] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn5.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -194,12 +206,14 @@ public class Tictactoe {
 		btn6 = new JButton("");
 		btn6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn6.setText(userSymbol);
-				btn6.setForeground(Color.RED);
-				STATE[1][2] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[1][2].equals("0")) {
+					btn6.setText(userSymbol);
+					btn6.setForeground(Color.RED);
+					STATE[1][2] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn6.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -235,12 +249,14 @@ public class Tictactoe {
 		btn7 = new JButton("");
 		btn7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn7.setText(userSymbol);
-				btn7.setForeground(Color.RED);
-				STATE[2][0] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[2][0].equals("0")) {
+					btn7.setText(userSymbol);
+					btn7.setForeground(Color.RED);
+					STATE[2][0] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn7.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -254,12 +270,14 @@ public class Tictactoe {
 		btn8 = new JButton("");
 		btn8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn8.setText(userSymbol);
-				btn8.setForeground(Color.RED);
-				STATE[2][1] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[2][1].equals("0")) {
+					btn8.setText(userSymbol);
+					btn8.setForeground(Color.RED);
+					STATE[2][1] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn8.setFont(new Font("Dialog", Font.BOLD, 35));
@@ -273,12 +291,14 @@ public class Tictactoe {
 		btn9 = new JButton("");
 		btn9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btn9.setText(userSymbol);
-				btn9.setForeground(Color.RED);
-				STATE[2][2] = userSymbol;
-				lastMove = 1;
-				isGAMEOVER();
-				aiPlays();
+				if(STATE[2][2].equals("0")) {
+					btn9.setText(userSymbol);
+					btn9.setForeground(Color.RED);
+					STATE[2][2] = userSymbol;
+					lastMove = 1;
+					isGAMEOVER();
+					aiPlays();
+				}
 			}
 		});
 		btn9.setFont(new Font("Dialog", Font.BOLD, 35));
