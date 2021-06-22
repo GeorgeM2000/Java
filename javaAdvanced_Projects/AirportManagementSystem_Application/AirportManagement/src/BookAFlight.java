@@ -187,7 +187,7 @@ public class BookAFlight extends JFrame {
 		textFieldPassengersNo.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent e) {
-				if(textFieldPassengersNo.getText().equals("")) textFieldPassengersNo.setText("0");
+				if(textFieldPassengersNo.getText().equals("")) textFieldPassengersNo.setText("-1");
 					
 				passengerCounter = Integer.parseInt(textFieldPassengersNo.getText());
 			}
@@ -345,8 +345,13 @@ public class BookAFlight extends JFrame {
 		buttonNextPassenger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(passengerCounter == 0 || (textFieldName.getText().isEmpty() || textFieldLastName.getText().isEmpty() || textFieldAge.getText().isEmpty() || textFieldIDNo.getText().isEmpty() || textFieldPassengersNo.getText().isEmpty() || textFieldSeatNo.getText().isEmpty())) {
+				if(passengerCounter == -1 || (textFieldName.getText().isEmpty() || textFieldLastName.getText().isEmpty() || textFieldAge.getText().isEmpty() || textFieldIDNo.getText().isEmpty() || textFieldPassengersNo.getText().isEmpty() || textFieldSeatNo.getText().isEmpty())) {
 					JOptionPane.showMessageDialog(null, "Information missing.");
+					return;
+				}
+				
+				if(passengerCounter == 0) {
+					JOptionPane.showMessageDialog(null, "You are not allowed to enter information for more passengers.\nPress the Book button.");
 					return;
 				}
 							
@@ -415,7 +420,7 @@ public class BookAFlight extends JFrame {
 				else
 				{
 					JOptionPane.showMessageDialog(null, "You have unsaved changes in passenger details! \n"
-							+ "                Press 'Next Passenger' first");
+							+ "                Press 'Save Passenger' first");
 				}
 				arrTempPassengerID.clear();
 				arrSeatNo.clear();
